@@ -695,7 +695,6 @@ void reload()
       type = *token;
       token = strtok(NULL, "\t");
       strcpy(pathname, token);
-      printf("\n!!!!!!!!!!!!!!!!!%c!!!!!!!!!!!!!!!\n",type);
       switch(type)
       {
         case 'F':
