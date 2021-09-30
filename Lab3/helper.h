@@ -194,7 +194,7 @@ void executePipelinedCommand(char *partialLineA, char* partialLineB, char* env[]
     }
     //getchar();
 
-     int redirectB = 0;
+    int redirectB = 0;
     int rediriB = 0;
     i = 0;
     while(i<n)
@@ -242,14 +242,14 @@ void executePipelinedCommand(char *partialLineA, char* partialLineB, char* env[]
        if(redirectA == 1)
        {
            close(0);
-           open(argB[rediriA+1], O_RDONLY);
+           open(argA[rediriA+1], O_RDONLY);
        }
        else if(redirectA == 2)
        {
            close(1);
            open(argA[rediriA+1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
        }
-       if(redirectB == 3)
+       if(redirectA == 3)
        {
            close(1);
            open(argA[rediriA+1], O_WRONLY | O_APPEND | O_CREAT, 0644);
@@ -294,14 +294,8 @@ void executePipelinedCommand(char *partialLineA, char* partialLineB, char* env[]
        int r = execve(line, argB, env);
 
        printf("execve failed r = %d\n", r);
-       
+
      }
 }
-
-
-
-
-
-
 
 #endif
